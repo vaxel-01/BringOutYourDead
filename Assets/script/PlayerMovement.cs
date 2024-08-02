@@ -19,10 +19,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        rb2D.velocity = new Vector2(horizontal * speed, rb2D.velocity.y);
+        if(GameManager.Instance.isPlaying)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            rb2D.velocity = new Vector2(horizontal * speed, rb2D.velocity.y);
 
-        Flip();
+            Flip();
+        }
     }
 
     private void Flip()

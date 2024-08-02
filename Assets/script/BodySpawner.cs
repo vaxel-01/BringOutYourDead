@@ -5,7 +5,8 @@ using UnityEngine;
 public class BodySpawner : MonoBehaviour
 {
 
-    #region 
+    //Accesspoint
+    #region Spawner
     public static BodySpawner spawner;
     private void Awake()
     {
@@ -36,17 +37,21 @@ public class BodySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Add listeners for game start and game over
+        GameManager.Instance.onGamePlay.AddListener(ResetFactors);
+        GameManager.Instance.onGameOver.AddListener(ClearObjects);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeAlive += Time.deltaTime;
+        if(GameManager.Instance.isPlaying)
+        {
+            timeAlive += Time.deltaTime;
         
-        CalculateFactors();
+            CalculateFactors();
 
-        SpawnLoop();
+            SpawnLoop();
+        }
     }
 
     private void SpawnLoop()
