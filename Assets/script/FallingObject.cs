@@ -19,6 +19,9 @@ public class FallingObject : MonoBehaviour
 
     [SerializeField] private float speed;
     
+    [SerializeField] private string objectType;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,15 @@ public class FallingObject : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if(collision.transform.tag == "Player")
+        {
+            Destroy(gameObject);
+            //Lägg till poäng
+        }
+        if(collision.transform.tag == "ground")
+        {
+            Destroy(gameObject);
+            //Ändra i poäng
+        }
     }
 }
