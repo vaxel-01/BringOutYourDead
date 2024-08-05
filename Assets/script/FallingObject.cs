@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    #region
+    //Accesspoint
+    #region obj
     public static FallingObject obj;
     private void Awake()
     {
@@ -41,11 +42,17 @@ public class FallingObject : MonoBehaviour
         {
             Destroy(gameObject);
             //Lägg till poäng
+            PlayerManager.manager.Collect(objectType);
         }
         if(collision.transform.tag == "ground")
         {
             Destroy(gameObject);
             //Ändra i poäng
+            if(objectType != "aliveBody")
+            {
+                PlayerManager.manager.Collect("MISSED");
+            }
+            
         }
     }
 }

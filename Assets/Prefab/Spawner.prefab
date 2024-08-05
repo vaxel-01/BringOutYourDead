@@ -78,10 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Offset: 5
   fallingObjects:
+  - {fileID: 273182994920896880, guid: dd5355f73dd2ddf40a3229fdccf18007, type: 3}
+  - {fileID: 5916181239329700750, guid: 954db2fbe0b446b42bef658d1fad2ad7, type: 3}
   - {fileID: 4285986098324050661, guid: ba8308283b9e3654ba7300580cdcf734, type: 3}
   - {fileID: 663735906194537724, guid: 33ef8274b916d9245ae622f9cd8f0988, type: 3}
-  - {fileID: 5916181239329700750, guid: 954db2fbe0b446b42bef658d1fad2ad7, type: 3}
-  - {fileID: 273182994920896880, guid: dd5355f73dd2ddf40a3229fdccf18007, type: 3}
   parentObject: {fileID: 8229878971417590259}
   spawnTime: 2
   spawnTimeModifier: 0.2
