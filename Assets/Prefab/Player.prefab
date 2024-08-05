@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 9153056896914218065}
   - component: {fileID: 6908408892536625334}
   - component: {fileID: 7956957872626772613}
+  - component: {fileID: 1136389238813885005}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,7 +206,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  slownessModifier: 0.3
+  minimumSpeed: 1.5
   rb2D: {fileID: 0}
+--- !u!114 &1136389238813885005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086116817513212759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68231c9e71969340a5d6d72c4501869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadBodyCollected: 0
+  aliveBodyCollected: 0
+  regTrashCollected: 0
+  goldTrashCollected: 0
+  objectsMissed: 0
 --- !u!1 &6666781138159535498
 GameObject:
   m_ObjectHideFlags: 0
