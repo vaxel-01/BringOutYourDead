@@ -37,6 +37,11 @@ public class PlayerManager : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
+
+        if(regTrashCollected==1 || goldTrashCollected==1)
+        {
+            UIManager.ui.ShowIcon();
+        }
     }
 
     private void ResetValues()
@@ -75,5 +80,10 @@ public class PlayerManager : MonoBehaviour
     public float TotalAmount()
     {
         return (deadBodyCollected+goldTrashCollected+regTrashCollected+objectsMissed);
+    }
+
+    public float TrashCollected()
+    {
+        return (regTrashCollected+goldTrashCollected);
     }
 }
