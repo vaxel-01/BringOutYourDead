@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 130f0b1df6bc166459dd72210d40ef50
+guid: 0239229fe8c3ab24ba6f8ef3bab7c1d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerPush_0
+      name: PlayerIdle0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90a6faef0b27b748ba23743205db25f
-      internalID: 1885304646
+      spriteID: a325efff72d567d4ebcdb7eee1b32767
+      internalID: 534017469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerPush_1
+      name: PlayerIdle0_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d5688ce3cecd844bbf7db6cd7fbcade
-      internalID: -1150914591
+      spriteID: d61abf20e8c65674e83228cacc4dd697
+      internalID: -2055373155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerPush_2
+      name: PlayerIdle0_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6aa399740a833b94f999055988bce4d5
-      internalID: -994222115
+      spriteID: 6b1e33c30cf6b6b4a8cb2165ee210625
+      internalID: 620470930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerPush_3
+      name: PlayerIdle0_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d28f37054b57d47be8f29846813ba3
-      internalID: 1438445845
+      spriteID: 0b0ef191caa3c3441b01214b44c22d2c
+      internalID: -924237635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerPush_4
+      name: PlayerIdle0_4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,71 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a75a0b17adfa8244b3dd2b7bf4b0286
-      internalID: -1481529226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerPush_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52cb8e708be3e7e4286e8338f2382755
-      internalID: 796351732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerPush_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50d055c8a4b774e4e814a941bd39c1a7
-      internalID: -1798557866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerPush_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4efd88f513e15114e8bd681b1d28b38e
-      internalID: -1102455566
+      spriteID: f368f03b11a8f9d44a93bcd0eb69adeb
+      internalID: -317357896
       vertices: []
       indices: 
       edges: []
@@ -288,14 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerPush_0: 1885304646
-      PlayerPush_1: -1150914591
-      PlayerPush_2: -994222115
-      PlayerPush_3: 1438445845
-      PlayerPush_4: -1481529226
-      PlayerPush_5: 796351732
-      PlayerPush_6: -1798557866
-      PlayerPush_7: -1102455566
+      PlayerIdle0_0: 534017469
+      PlayerIdle0_1: -2055373155
+      PlayerIdle0_2: 620470930
+      PlayerIdle0_3: -924237635
+      PlayerIdle0_4: -317357896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

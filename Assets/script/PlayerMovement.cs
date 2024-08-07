@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2D;
     private bool isFacingRight;
 
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         GameManager.Instance.onGamePlay.AddListener(ResetValues);
+        GameManager.Instance.onGameOver.AddListener(GamePlayEnd);
     }
 
     // Update is called once per frame
@@ -30,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             rb2D.velocity = new Vector2(horizontal * _speed, rb2D.velocity.y);
+            animator.SetFloat("Speed", horizontal);
+            //animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
-            Flip();
+            //Flip();
             Slowness();
         }
     }
@@ -60,5 +64,10 @@ public class PlayerMovement : MonoBehaviour
     private void ResetValues()
     {
         _speed=speed;
+    }
+
+    private void GamePlayEnd()
+    {
+        animator.SetFloat("Speed", 0);
     }
 }
