@@ -29,21 +29,11 @@ public class GameManager : MonoBehaviour
     public UnityEvent onGamePlay = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if(Input.GetKeyDown("k"))
-        {
-            if(isPlaying)
-            {
-                GameOver();
-            }
-            else
-            {
-                StartGame();
-            }
-        }
+        StartGame();
     }
+    
 
     //Game States
 
@@ -68,9 +58,26 @@ public class GameManager : MonoBehaviour
     {
         float totalAmount = PlayerManager.manager.TotalAmount();
         
-        float addedPoints = PlayerManager.manager.deadBodyCollected * collectDead;
-        float removedPoints = (PlayerManager.manager.regTrashCollected + PlayerManager.manager.goldTrashCollected) * (-collectTrash);
+        float pointsRewarded=PlayerManager.manager.deadBodyCollected * collectDead;
+        float pointsRemoved= PlayerManager.manager.TrashCollected() * (-collectTrash);
+        
+        float scoreCount = totalAmount * (pointsRewarded + pointsRemoved - PlayerManager.manager.objectsMissed);
 
-        totalScore = addedPoints - removedPoints + PlayerManager.manager.goldTrashCollected;
+        if(PlayerManager.manager.MoreGoldThanRegular())
+        {
+            scoreCount += PlayerManager.manager.goldTrashCollected * collectTrash;
+        }
+        else
+        {
+            scoreCount = scoreCount * (PlayerManager.manager.objectsMissed / PlayerManager.manager.goldTrashCollected);
+        }
+
+        totalScore = Mathf.Round(scoreCount);
+
+        if(totalScore < 0)
+        {
+            totalScore=0;
+        }
+
     }
 }

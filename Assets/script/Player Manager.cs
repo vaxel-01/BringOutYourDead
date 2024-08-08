@@ -86,4 +86,15 @@ public class PlayerManager : MonoBehaviour
     {
         return (regTrashCollected+goldTrashCollected);
     }
+    public bool MoreGoldThanRegular()
+    {
+        if(goldTrashCollected>regTrashCollected)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

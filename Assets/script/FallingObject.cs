@@ -41,14 +41,12 @@ public class FallingObject : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             Destroy(gameObject);
-            //Lägg till poäng
             PlayerManager.manager.Collect(objectType);
         }
         if(collision.transform.tag == "ground")
         {
             Destroy(gameObject);
-            //Ändra i poäng
-            if(objectType != "aliveBody")
+            if(objectType == "deadBody")
             {
                 PlayerManager.manager.Collect("MISSED");
             }

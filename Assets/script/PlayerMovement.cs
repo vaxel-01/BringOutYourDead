@@ -23,21 +23,20 @@ public class PlayerMovement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         GameManager.Instance.onGamePlay.AddListener(ResetValues);
         GameManager.Instance.onGameOver.AddListener(GamePlayEnd);
+        ResetValues();
+        GamePlayEnd();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.isPlaying)
-        {
-            horizontal = Input.GetAxis("Horizontal");
-            rb2D.velocity = new Vector2(horizontal * _speed, rb2D.velocity.y);
-            animator.SetFloat("Speed", horizontal);
-            //animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        horizontal = Input.GetAxis("Horizontal");
+        rb2D.velocity = new Vector2(horizontal * _speed, rb2D.velocity.y);
+        animator.SetFloat("Speed", horizontal);
+        //animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
-            //Flip();
-            Slowness();
-        }
+        //Flip();
+        Slowness();
     }
 
     private void Flip()
