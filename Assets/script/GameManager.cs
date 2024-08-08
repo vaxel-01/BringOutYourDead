@@ -33,6 +33,14 @@ public class GameManager : MonoBehaviour
     {
         StartGame();
     }
+
+    void Update()
+    {
+        if(!isPlaying && Input.GetKeyDown("k"))
+        {
+            StartGame();
+        }
+    }
     
 
     //Game States
@@ -63,20 +71,23 @@ public class GameManager : MonoBehaviour
         
         float scoreCount = totalAmount * (pointsRewarded + pointsRemoved - PlayerManager.manager.objectsMissed);
 
-        if(PlayerManager.manager.MoreGoldThanRegular())
+        if(PlayerManager.manager.goldTrashCollected>0)
         {
-            scoreCount += PlayerManager.manager.goldTrashCollected * collectTrash;
-        }
-        else
-        {
-            scoreCount = scoreCount * (PlayerManager.manager.objectsMissed / PlayerManager.manager.goldTrashCollected);
+            if(PlayerManager.manager.MoreGoldThanRegular())
+            {
+                scoreCount += PlayerManager.manager.goldTrashCollected;
+            }
+            else
+            {
+                scoreCount += Mathf.Round(PlayerManager.manager.goldTrashCollected / collectTrash);
+            }
         }
 
-        totalScore = Mathf.Round(scoreCount);
+        totalScore = scoreCount;
 
-        if(totalScore < 0)
+        if(totalScore < 0) //Hindrar att spelaren får ett negativt score (den får bara alltid 0 istället)
         {
-            totalScore=0;
+            totalScore = 0;
         }
 
     }
