@@ -143,7 +143,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.07917008, y: -0.0938312}
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795294fd569388941b6a8f580f1ce115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 2236524082095069351, guid: 06b3de154309f45469c6f26fdb0ff650, type: 3}
   rb2D: {fileID: 6143176085579021614}
   speed: 5
   objectType: goldTrash

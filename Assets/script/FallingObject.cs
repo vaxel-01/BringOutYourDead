@@ -15,6 +15,7 @@ public class FallingObject : MonoBehaviour
         }
     }
     #endregion
+    [SerializeField] GameObject sound;
 
     [SerializeField] private Rigidbody2D rb2D;
 
@@ -36,10 +37,12 @@ public class FallingObject : MonoBehaviour
         rb2D.velocity = new Vector2(rb2D.velocity.x , (-speed));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform.tag == "Player")
         {
+            Debug.Log("hit player!");
+            Instantiate(sound, transform.position, transform.rotation);
             Destroy(gameObject);
             PlayerManager.manager.Collect(objectType);
         }
@@ -53,4 +56,5 @@ public class FallingObject : MonoBehaviour
             
         }
     }
+
 }

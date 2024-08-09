@@ -5,21 +5,25 @@ using UnityEngine;
 public class PlaySoundOnCollision : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip collisionSound;
+    float elapsedTime;
+    float timeTilDeath = 3;
 
-    void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
     {
-        if (collision.collider.CompareTag("Player"))
+        if (elapsedTime >= timeTilDeath)
         {
-            PlaySound();
+            Destroy(gameObject);
+        }
+        else
+        {
+            elapsedTime += Time.fixedDeltaTime;
         }
     }
-
     void PlaySound()
     {
-        if (audioSource != null && collisionSound != null)
+        if (audioSource != null && audioSource.clip != null)
         {
-            audioSource.PlayOneShot(collisionSound);
+            audioSource.Play();
         }
         else
         {
