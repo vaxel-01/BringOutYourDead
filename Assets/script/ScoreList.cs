@@ -21,8 +21,10 @@ public class ScoreList : MonoBehaviour
     public TextMeshProUGUI deadBodyUI;
     public TextMeshProUGUI trashUI;
     public TextMeshProUGUI goldTrashUI;
+    public TextMeshProUGUI itemsMissedUI;
 
-    //[Header("Point adding / removing")]
+    //De här skulle kunna visa hur man lägger till/tar bort poäng?
+    //[Header("Point adding / removing")] 
     //public TextMeshProUGUI pointsAddedUI;
     //public TextMeshProUGUI pointsRemovedUI;
     //public TextMeshProUGUI goldAddedUI;
@@ -33,16 +35,14 @@ public class ScoreList : MonoBehaviour
         GameManager.Instance.pointCounter();
     }
 
-    public void WriteScore(float ts, float db, float ta, float gta, float preward, float premove, float pgold)
+    public void WriteScore(float ts, float db, float ta, float gta, float im)
     {
         totalScoreUI.text = Mathf.RoundToInt(ts).ToString();
         deadBodyUI.text = Mathf.RoundToInt(db).ToString();
         trashUI.text = Mathf.RoundToInt(ta).ToString();
         goldTrashUI.text = Mathf.RoundToInt(gta).ToString();
+        itemsMissedUI.text=Mathf.RoundToInt(im).ToString();
 
-        //pointsAddedUI.text = Mathf.RoundToInt(preward).ToString();
-        //pointsRemovedUI.text = Mathf.RoundToInt(premove).ToString();
-        //goldAddedUI.text = Mathf.RoundToInt(pgold).ToString();
     }
 
 }

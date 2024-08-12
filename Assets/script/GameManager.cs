@@ -80,20 +80,12 @@ public class GameManager : MonoBehaviour
         
         if(gold>0)
         {
-            if(PlayerManager.manager.MoreGoldThanRegular())
-            {
-                goldPoints = gold;
-            }
-            else
-            {
-                goldPoints = Mathf.Round(gold / collectTrash);
-            }
 
             scoreCount += goldPoints;
         }
 
         //totalScore = scoreCount;
         
-        ScoreList.ui.WriteScore(scoreCount, deadBodies, totalTrash, gold, pointsRewarded, pointsRemoved, goldPoints);
+        ScoreList.ui.WriteScore(scoreCount, deadBodies, totalTrash, gold, PlayerManager.manager.objectsMissed);
     }
 }
