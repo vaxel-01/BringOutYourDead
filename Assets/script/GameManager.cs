@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
         {
             Instance=this;
         }
+
+        DontDestroyOnLoad(transform.gameObject);
     }
     #endregion
     
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
     public bool isPlaying = false;
     public UnityEvent onGamePlay = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
-
+    
     void Start()
     {
         StartGame();
@@ -37,10 +39,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!isPlaying && Input.GetKeyDown("k"))
-        {
-            StartGame();
-        }
+
     }
     
 
@@ -55,44 +54,46 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //onGameOver.Invoke();
+        onGameOver.Invoke();
         isPlaying=false;
-
-        pointCounter();
-
+        //pointCounter();
         SceneManager.LoadScene(2);
 
     }
 
     //Points
 
-    private void pointCounter()
+    public void pointCounter()
     {
         float totalAmount = PlayerManager.manager.TotalAmount();
+        float deadBodies = PlayerManager.manager.deadBodyCollected;
+        float totalTrash = PlayerManager.manager.TrashCollected();
+        float gold = PlayerManager.manager.goldTrashCollected;
         
-        float pointsRewarded=PlayerManager.manager.deadBodyCollected * collectDead;
-        float pointsRemoved= PlayerManager.manager.TrashCollected() * (-collectTrash);
+        float pointsRewarded= deadBodies * collectDead;
+        float pointsRemoved= totalTrash * (-collectTrash);
+        float goldPoints = 0;
         
         float scoreCount = totalAmount * (pointsRewarded + pointsRemoved - PlayerManager.manager.objectsMissed);
 
-        if(PlayerManager.manager.goldTrashCollected>0)
+        
+        
+        if(gold>0)
         {
             if(PlayerManager.manager.MoreGoldThanRegular())
             {
-                scoreCount += PlayerManager.manager.goldTrashCollected;
+                goldPoints = gold;
             }
             else
             {
-                scoreCount += Mathf.Round(PlayerManager.manager.goldTrashCollected / collectTrash);
+                goldPoints = Mathf.Round(gold / collectTrash);
             }
+
+            scoreCount += goldPoints;
         }
 
-        totalScore = scoreCount;
-
-        if(totalScore < 0) //Hindrar att spelaren får ett negativt score (den får bara alltid 0 istället)
-        {
-            totalScore = 0;
-        }
-
+        //totalScore = scoreCount;
+        
+        ScoreList.ui.WriteScore(scoreCount, deadBodies, totalTrash, gold, pointsRewarded, pointsRemoved, goldPoints);
     }
 }
