@@ -18,4 +18,12 @@ public class Menu : MonoBehaviour
         GameManager.Instance.StartGame();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown("g"))
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
+
 }

@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public int aliveBodyCollected;
     public int regTrashCollected;
     public int goldTrashCollected;
+    public int gunter;
 
     [Header("Missed Objects")]
     public int objectsMissed;
@@ -51,6 +52,7 @@ public class PlayerManager : MonoBehaviour
         regTrashCollected=0;
         goldTrashCollected=0;
         objectsMissed=0;
+        gunter=0;
     }
 
     public void Collect(string objectName)
@@ -71,6 +73,9 @@ public class PlayerManager : MonoBehaviour
                 break;
             case "MISSED":
                 objectsMissed++;
+                break;
+            case "gunter":
+                gunter++;
                 break;
             default:
                 break;

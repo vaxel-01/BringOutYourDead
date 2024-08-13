@@ -35,6 +35,10 @@ public class FallingObject : MonoBehaviour
     void Update()
     {
         rb2D.velocity = new Vector2(rb2D.velocity.x , (-speed));
+        if(objectType=="gunter" && GameManager.Instance.isGunter==false)
+        {
+            GameManager.Instance.isGunter=true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +53,7 @@ public class FallingObject : MonoBehaviour
         if(collision.transform.tag == "ground")
         {
             Destroy(gameObject);
-            if(objectType == "deadBody")
+            if(objectType == "deadBody" || objectType == "gunter")
             {
                 PlayerManager.manager.Collect("MISSED");
             }

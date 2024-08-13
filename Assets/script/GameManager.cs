@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public bool isPlaying = false;
     public UnityEvent onGamePlay = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
+
+    public bool isGunter;
     
     void Start()
     {
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
         onGamePlay.Invoke();
 
         isPlaying=true;
+        isGunter=false;
     }
 
     public void GameOver()
@@ -69,23 +72,38 @@ public class GameManager : MonoBehaviour
         float deadBodies = PlayerManager.manager.deadBodyCollected;
         float totalTrash = PlayerManager.manager.TrashCollected();
         float gold = PlayerManager.manager.goldTrashCollected;
-        
-        float pointsRewarded= deadBodies * collectDead;
-        float pointsRemoved= totalTrash * (-collectTrash);
         float goldPoints = 0;
-        
-        float scoreCount = totalAmount * (pointsRewarded + pointsRemoved - PlayerManager.manager.objectsMissed);
+        float gunter = PlayerManager.manager.gunter;
 
+        float pointsRewarded;
+        float pointsRemoved;
+        float scoreCount;
         
         
-        if(gold>0)
+
+        //totalScore = scoreCount;
+
+        if(isGunter)
+        {
+            ScoreList.ui.WriteScore(0, 0, 0, 0, PlayerManager.manager.objectsMissed, gunter);
+        }
+        else
+        {
+            pointsRewarded= deadBodies * collectDead;
+            pointsRemoved= totalTrash * (-collectTrash);
+
+            scoreCount = totalAmount * (pointsRewarded + pointsRemoved - PlayerManager.manager.objectsMissed);
+            
+            if(gold>0)
         {
 
             scoreCount += goldPoints;
         }
-
-        //totalScore = scoreCount;
+            
+            ScoreList.ui.WriteScore(scoreCount, deadBodies, totalTrash, gold, PlayerManager.manager.objectsMissed, -1);
+        }
         
-        ScoreList.ui.WriteScore(scoreCount, deadBodies, totalTrash, gold, PlayerManager.manager.objectsMissed);
+        
+        
     }
 }
