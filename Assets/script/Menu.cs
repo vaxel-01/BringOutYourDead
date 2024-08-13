@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour
     {
         if(Input.GetKeyDown("g"))
         {
+            GameStart();
             SceneManager.LoadScene(3);
         }
     }
