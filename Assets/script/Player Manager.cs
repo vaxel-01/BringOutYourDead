@@ -38,11 +38,6 @@ public class PlayerManager : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
-
-        if(regTrashCollected==1 || goldTrashCollected==1)
-        {
-            UIManager.ui.ShowIcon();
-        }
     }
 
     private void ResetValues()
@@ -67,9 +62,11 @@ public class PlayerManager : MonoBehaviour
                 break;
             case "goldTrash":
                 goldTrashCollected++;
+                SlownessIconSpawner.spawner.SpawnIcon();
                 break;
             case "trash":
                 regTrashCollected++;
+                SlownessIconSpawner.spawner.SpawnIcon();
                 break;
             case "MISSED":
                 objectsMissed++;
