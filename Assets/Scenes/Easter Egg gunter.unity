@@ -3527,7 +3527,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 509199567314006100, guid: 281f5782cd5080a43928e75c7b87a3eb, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Cart
       objectReference: {fileID: 0}
     - target: {fileID: 5086116817513212759, guid: 281f5782cd5080a43928e75c7b87a3eb, type: 3}
       propertyPath: m_Name

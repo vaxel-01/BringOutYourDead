@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 41868475930226702}
   - component: {fileID: 3601435980020339210}
   - component: {fileID: 7756545528893116330}
+  - component: {fileID: 8514453483191986533}
   m_Layer: 0
   m_Name: alive
   m_TagString: Untagged
@@ -175,3 +176,24 @@ MonoBehaviour:
   rb2D: {fileID: 41868475930226702}
   speed: 5
   objectType: aliveBody
+--- !u!95 &8514453483191986533
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285986098324050661}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc64b132344be3344924ed21d478e322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
