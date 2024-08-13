@@ -4083,7 +4083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5217576601297988197, guid: 513a800c0c00ecc4da37cdbdda6be07d, type: 3}
       propertyPath: fallingObjects.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5217576601297988197, guid: 513a800c0c00ecc4da37cdbdda6be07d, type: 3}
       propertyPath: fallingObjects.Array.data[0]
